@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My first sub-window</title>
+	<style type="text/css">
+		.iframe-class {
+    		width: 500px;
+    		height: 500px;
+    		border: 3px solid black;
+    		overflow: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>My First Sub-window</h1>
+	<form>
+		Enter URL here: <input type="text" id="url" name="">
+		<input type="button" id="go" name="" value="Go" onclick="displayWebpage()"><br>
+	</form>
+	Resize the subwindow<br>
+	<form>
+		Enter width in pixels: <input type="text" id="width" name=""><br>
+		Enter height in pixels: <input type="text" id="height" name=""><br>
+		<input type="button" id="resize" name="" value="Resize" onclick="resizeWebpage()"><br>
+	</form>
+	<iframe id="subwindow" class="iframe-class"></iframe>
+</body>
+
+<script type="text/javascript">
+	function displayWebpage(){
+		var url = document.getElementById("url").value;
+		var subwindow = document.getElementById("subwindow");
+		subwindow.setAttribute("src", url);
+	}
+	function resizeWebpage(){
+		var width = document.getElementById("width").value;
+		var height = document.getElementById("height").value;
+		var subwindow = document.getElementById("subwindow");
+		subwindow.style.width = ""+width+"px";
+		subwindow.style.height = ""+height+"px";
+	}
+</script>
+</html>
